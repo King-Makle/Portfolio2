@@ -7,7 +7,8 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const menuContentRef = useRef<HTMLDivElement>(null);
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -53,9 +54,11 @@ const Header: React.FC = () => {
         return;
       }
       
-      // Close if clicking outside the mobile menu content
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(target)) {
-        setIsMenuOpen(false);
+      // Close if clicking on the overlay but not on the menu content
+      if (overlayRef.current && overlayRef.current.contains(target)) {
+        if (menuContentRef.current && !menuContentRef.current.contains(target)) {
+          setIsMenuOpen(false);
+        }
       }
     };
 
@@ -119,11 +122,14 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
-        isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}>
+      <div 
+        ref={overlayRef}
+        className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
         <div 
-          ref={mobileMenuRef}
+          ref={menuContentRef}
           className="container-custom pt-24 pb-8"
         >
           <nav className="flex flex-col">
