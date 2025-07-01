@@ -87,18 +87,30 @@ const Header: React.FC = () => {
         </button>
       </div>
       
-      {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 md:hidden ${
-        isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      {/* Mobile Menu - Full Screen Overlay */}
+      <div className={`fixed top-0 left-0 w-full h-full bg-white dark:bg-gray-900 z-[60] transition-all duration-300 md:hidden ${
+        isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
       }`}>
-        <div className="container-custom pt-24 pb-8 h-full flex flex-col justify-center">
-          <nav className="flex flex-col">
-            <ul className="flex flex-col space-y-6 text-xl">
-              <li><button onClick={() => handleNavigation('home')} className="nav-link active-nav-link">Home</button></li>
-              <li><button onClick={() => handleNavigation('about')} className="nav-link">About</button></li>
-              <li><button onClick={() => handleNavigation('skills')} className="nav-link">Skills</button></li>
-              <li><button onClick={() => handleNavigation('projects')} className="nav-link">Projects</button></li>
-              <li><button onClick={() => handleNavigation('contact')} className="nav-link">Contact</button></li>
+        {/* Close Button in Mobile Menu */}
+        <div className="absolute top-5 right-4 z-[70]">
+          <button 
+            onClick={toggleMenu}
+            className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+        </div>
+        
+        {/* Menu Content */}
+        <div className="flex flex-col justify-center items-center h-full w-full px-8">
+          <nav className="flex flex-col items-center">
+            <ul className="flex flex-col items-center space-y-8 text-2xl">
+              <li><button onClick={() => handleNavigation('home')} className="nav-link active-nav-link text-center">Home</button></li>
+              <li><button onClick={() => handleNavigation('about')} className="nav-link text-center">About</button></li>
+              <li><button onClick={() => handleNavigation('skills')} className="nav-link text-center">Skills</button></li>
+              <li><button onClick={() => handleNavigation('projects')} className="nav-link text-center">Projects</button></li>
+              <li><button onClick={() => handleNavigation('contact')} className="nav-link text-center">Contact</button></li>
             </ul>
           </nav>
         </div>
