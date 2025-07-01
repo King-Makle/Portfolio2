@@ -204,7 +204,7 @@ const ProjectDetails: React.FC = () => {
                 {/* Top Row - Two equal square containers */}
                 <div className="grid grid-cols-2 gap-4">
                   {/* Top Left Square - First angled view */}
-                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border-[6px] border-gray-300 dark:border-gray-600">
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border-[4px] border-white">
                     <img
                       src={project.screenshots[1]}
                       alt={`${project.title} angled view 1`}
@@ -214,7 +214,7 @@ const ProjectDetails: React.FC = () => {
                   </div>
                   
                   {/* Top Right Square - Second angled view */}
-                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border-[6px] border-gray-300 dark:border-gray-600">
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border-[4px] border-white">
                     <img
                       src={project.screenshots[2]}
                       alt={`${project.title} angled view 2`}
@@ -225,7 +225,7 @@ const ProjectDetails: React.FC = () => {
                 </div>
                 
                 {/* Bottom - Wide rectangular container for placard (15% taller) */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group border-[6px] border-gray-300 dark:border-gray-600" style={{ height: '115%' }}>
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group border-[4px] border-white" style={{ height: '115%' }}>
                   <img
                     src={project.screenshots[3]}
                     alt={`${project.title} Secret Typography Love placard`}
@@ -237,7 +237,7 @@ const ProjectDetails: React.FC = () => {
               
               {/* Right Column - One tall image with extended height (h-96 + 100px = h-[500px]) */}
               <div className="lg:w-[45%]">
-                <div className="h-[810px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border-[6px] border-gray-300 dark:border-gray-600">
+                <div className="h-[810px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group border-[4px] border-white">
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} full wall installation`}
