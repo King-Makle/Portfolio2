@@ -98,7 +98,7 @@ const Header: React.FC = () => {
             className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Close menu"
           >
-            <X size={24} />
+            <X size={48} />
           </button>
         </div>
         
