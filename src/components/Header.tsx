@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -7,6 +7,7 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -40,6 +41,35 @@ const Header: React.FC = () => {
     };
   }, [isMenuOpen]);
 
+  // Click outside to close mobile menu
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      
+      // Don't close if clicking on the toggle button
+      if (target.closest('#mobile-menu-toggle')) {
+        return;
+      }
+      
+      // Close if clicking outside the mobile menu content
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    // Delay adding the event listener to prevent immediate closure
+    const timeoutId = setTimeout(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
   const handleNavigation = (sectionId: string) => {
     if (location.pathname !== '/') {
       navigate('/', { state: { scrollTo: sectionId } });
@@ -50,14 +80,6 @@ const Header: React.FC = () => {
       }
     }
     setIsMenuOpen(false);
-  };
-
-  const handleOverlayClick = () => {
-    setIsMenuOpen(false);
-  };
-
-  const handleMenuContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
   };
 
   return (
@@ -87,6 +109,7 @@ const Header: React.FC = () => {
         
         {/* Mobile Navigation Toggle */}
         <button 
+          id="mobile-menu-toggle"
           onClick={toggleMenu}
           className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors md:hidden"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -96,15 +119,12 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile Menu */}
-      <div 
-        className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-        onClick={handleOverlayClick}
-      >
+      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
+        isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}>
         <div 
+          ref={mobileMenuRef}
           className="container-custom pt-24 pb-8"
-          onClick={handleMenuContentClick}
         >
           <nav className="flex flex-col">
             <ul className="flex flex-col space-y-6 text-xl">
