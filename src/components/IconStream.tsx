@@ -12,7 +12,7 @@ const IconStream: React.FC = () => {
               <img
                 src={icon}
                 alt={`App Icon ${index}`}
-                className="w-16 h-16 object-contain rounded-lg shadow-md hover:scale-110 transition-transform duration-300"
+                className="w-16 h-16 object-cover rounded-lg shadow-md hover:scale-110 transition-transform duration-300"
               />
             </div>
           ))}
@@ -23,7 +23,7 @@ const IconStream: React.FC = () => {
               <img
                 src={icon}
                 alt={`App Icon ${index}`}
-                className="w-16 h-16 object-contain rounded-lg shadow-md hover:scale-110 transition-transform duration-300"
+                className="w-16 h-16 object-cover rounded-lg shadow-md hover:scale-110 transition-transform duration-300"
               />
             </div>
           ))}
