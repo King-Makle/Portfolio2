@@ -54,11 +54,9 @@ const Header: React.FC = () => {
         return;
       }
       
-      // Close if clicking on the overlay but not on the menu content
-      if (overlayRef.current && overlayRef.current.contains(target)) {
-        if (menuContentRef.current && !menuContentRef.current.contains(target)) {
-          setIsMenuOpen(false);
-        }
+      // Close if clicking outside the menu content
+      if (menuContentRef.current && !menuContentRef.current.contains(target)) {
+        setIsMenuOpen(false);
       }
     };
 
@@ -124,16 +122,16 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       <div 
         ref={overlayRef}
-        className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
+        className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 flex items-center justify-center ${
           isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
       >
         <div 
           ref={menuContentRef}
-          className="container-custom pt-24 pb-8"
+          className="container-custom h-full w-full"
         >
-          <nav className="flex flex-col">
-            <ul className="flex flex-col space-y-6 text-xl">
+          <nav className="flex flex-col h-full items-center justify-center">
+            <ul className="flex flex-col space-y-6 text-xl text-center">
               <li><button onClick={() => handleNavigation('home')} className="nav-link active-nav-link">Home</button></li>
               <li><button onClick={() => handleNavigation('about')} className="nav-link">About</button></li>
               <li><button onClick={() => handleNavigation('skills')} className="nav-link">Skills</button></li>
