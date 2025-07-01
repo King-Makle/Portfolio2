@@ -88,9 +88,20 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
+      <div className={`fixed inset-0 bg-white dark:bg-black z-40 transition-all duration-300 ${
         isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}>
+        {/* Close Button in Mobile Menu */}
+        <div className="absolute top-5 right-4">
+          <button 
+            onClick={toggleMenu}
+            className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
+        </div>
+        
         <div className="container-custom pt-24 pb-8">
           <nav className="flex flex-col">
             <ul className="flex flex-col space-y-6 text-xl">
