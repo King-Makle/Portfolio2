@@ -193,8 +193,8 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'secret-typography' ? (
           <div className="mb-12">
-            {/* Secret Typography Layout matching red outlines */}
-            <div className="max-w-5xl mx-auto">
+            {/* Secret Typography Layout matching red outlines exactly */}
+            <div className="max-w-6xl mx-auto">
               {/* Top Row - Two square containers side by side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 {/* Top Left Square - First angled view */}
@@ -225,7 +225,7 @@ const ProjectDetails: React.FC = () => {
                   <img
                     src={project.screenshots[3]}
                     alt={`${project.title} Secret Typography Love placard`}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -235,7 +235,7 @@ const ProjectDetails: React.FC = () => {
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} full wall installation`}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-64 object-cover"
                     loading="lazy"
                   />
                 </div>
