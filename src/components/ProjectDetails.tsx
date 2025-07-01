@@ -197,46 +197,51 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'secret-typography' ? (
           <div className="mb-12">
-            {/* Secret Typography Layout - Single photo container for the full wall installation */}
-            <div className="max-w-5xl mx-auto">
-              {/* Single large container for the full wall installation image */}
-              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group mb-6">
-                <img
-                  src={project.screenshots[0]}
-                  alt={`${project.title} full wall installation`}
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              
-              {/* Bottom Row - Three equal containers for the other images */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* First angled view */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
-                  <img
-                    src={project.screenshots[1]}
-                    alt={`${project.title} angled view 1`}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+            {/* Secret Typography Layout - Left side: 3 images (60%), Right side: 1 tall image (40%) */}
+            <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-4">
+              {/* Left Column - 3 images stacked (55%) */}
+              <div className="lg:w-[55%] flex flex-col gap-4">
+                {/* Top Row - Two equal square containers */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* Top Left Square - First angled view */}
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                    <img
+                      src={project.screenshots[1]}
+                      alt={`${project.title} angled view 1`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  
+                  {/* Top Right Square - Second angled view */}
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                    <img
+                      src={project.screenshots[2]}
+                      alt={`${project.title} angled view 2`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
                 
-                {/* Second angled view */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
-                  <img
-                    src={project.screenshots[2]}
-                    alt={`${project.title} angled view 2`}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                
-                {/* Secret Typography Love placard */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
+                {/* Bottom - Wide rectangular container for placard (15% taller) */}
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group" style={{ height: '115%' }}>
                   <img
                     src={project.screenshots[3]}
                     alt={`${project.title} Secret Typography Love placard`}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              
+              {/* Right Column - One tall image with fixed height to match landscape photos */}
+              <div className="lg:w-[45%]">
+                <div className="h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                  <img
+                    src={project.screenshots[0]}
+                    alt={`${project.title} full wall installation`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
