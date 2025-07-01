@@ -88,12 +88,12 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white dark:bg-black z-40 transition-all duration-300 ${
+      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
         isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}>
         <div className="container-custom pt-24 pb-8">
           <nav className="flex flex-col">
-            <ul className="mobile-nav-list flex flex-col space-y-6 text-xl">
+            <ul className="flex flex-col space-y-6 text-xl">
               <li><button onClick={() => handleNavigation('home')} className="nav-link active-nav-link">Home</button></li>
               <li><button onClick={() => handleNavigation('about')} className="nav-link">About</button></li>
               <li><button onClick={() => handleNavigation('skills')} className="nav-link">Skills</button></li>

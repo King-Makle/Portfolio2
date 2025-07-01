@@ -65,15 +65,6 @@
   .active-nav-link {
     @apply text-blue-500 dark:text-blue-400 font-medium;
   }
-
-  /* Mobile navigation specific styles */
-  .mobile-nav-list .nav-link {
-    @apply text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors duration-300;
-  }
-
-  .mobile-nav-list .active-nav-link {
-    @apply bg-blue-500 text-white font-medium rounded-md px-4 py-2;
-  }
   
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
