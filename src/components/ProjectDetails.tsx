@@ -102,31 +102,31 @@ const ProjectDetails: React.FC = () => {
             {/* Delta Sigma Phi Layout - Horizontal row with 3 photos */}
             <div className="flex gap-4">
               {/* First image - Book (adjusted width) */}
-              <div className="flex-[2] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="flex-[2] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                 <img
                   src={project.screenshots[0]}
                   alt={`${project.title} book`}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
               
               {/* Second image - Polo (square container) */}
-              <div className="w-64 h-64 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="w-64 h-64 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                 <img
                   src={project.screenshots[1]}
                   alt={`${project.title} polo`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
               
               {/* Third image - Flyer (adjusted width) */}
-              <div className="flex-[2] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="flex-[2] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                 <img
                   src={project.screenshots[2]}
                   alt={`${project.title} flyer`}
-                  className="w-full h-64 object-cover"
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
@@ -136,11 +136,11 @@ const ProjectDetails: React.FC = () => {
           <div className="mb-12">
             {/* Urban Reflections Carousel */}
             <div className="relative max-w-3xl mx-auto">
-              <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center min-h-[400px]">
+              <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center min-h-[400px] group">
                 <img
                   src={project.screenshots[currentImageIndex]}
                   alt={`${project.title} image ${currentImageIndex + 1}`}
-                  className="max-w-full max-h-[500px] object-contain transition-opacity duration-300"
+                  className="max-w-full max-h-[500px] object-contain transition-all duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
@@ -200,21 +200,21 @@ const ProjectDetails: React.FC = () => {
                 {/* Top Row - Two equal square containers */}
                 <div className="grid grid-cols-2 gap-4">
                   {/* Top Left Square - First angled view */}
-                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                     <img
                       src={project.screenshots[1]}
                       alt={`${project.title} angled view 1`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
                   
                   {/* Top Right Square - Second angled view */}
-                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                     <img
                       src={project.screenshots[2]}
                       alt={`${project.title} angled view 2`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
@@ -233,11 +233,11 @@ const ProjectDetails: React.FC = () => {
               
               {/* Right Column - One tall image spanning full height (45%) */}
               <div className="lg:w-[45%]">
-                <div className="h-full rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="h-full rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} full wall installation`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -250,11 +250,11 @@ const ProjectDetails: React.FC = () => {
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Left Column - Image 1 */}
               <div className="lg:w-[65%] flex-shrink-0">
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full border-0 border-gray-300">
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full border-0 border-gray-300 group">
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} main image`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -264,11 +264,11 @@ const ProjectDetails: React.FC = () => {
               <div className="flex-1 flex flex-col gap-4">
                 {/* Image 2 - Top */}
                 <div className="flex-1">
-                  <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full border-[3px] border-gray-300">
+                  <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full border-[3px] border-gray-300 group">
                     <img
                       src={project.screenshots[1]}
                       alt={`${project.title} detail 1`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
@@ -276,11 +276,11 @@ const ProjectDetails: React.FC = () => {
 
                 {/* Image 3 - Bottom */}
                 <div className="flex-1">
-                  <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full border-[3px] border-gray-300">
+                  <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full border-[3px] border-gray-300 group">
                     <img
                       src={project.screenshots[2]}
                       alt={`${project.title} detail 2`}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
@@ -291,11 +291,11 @@ const ProjectDetails: React.FC = () => {
         ) : project.id === 'spliteasy' ? (
           <div className="mb-12">
             {/* Banner Image - Full Width */}
-            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow mb-5">
+            <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow mb-5 group">
               <img
                 src={project.screenshots[0]}
                 alt={`${project.title} banner`}
-                className="w-full h-auto"
+                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
                 loading="lazy"
               />
             </div>
@@ -304,11 +304,11 @@ const ProjectDetails: React.FC = () => {
             <div className="flex flex-col gap-5 max-[600px]:gap-5 min-[600px]:flex-row min-[600px]:gap-5">
               {/* Left Column - UI Design Board (66%) */}
               <div className="min-[600px]:w-[55%]">
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[1]}
                     alt={`${project.title} UI design board`}
-                    className="w-full h-auto"
+                    className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -316,11 +316,11 @@ const ProjectDetails: React.FC = () => {
 
               {/* Right Column - Style Guide (33%) */}
               <div className="min-[600px]:w-[46%]">
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[2]}
                     alt={`${project.title} style guide`}
-                    className="w-full h-auto"
+                    className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -333,11 +333,11 @@ const ProjectDetails: React.FC = () => {
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Large left image - reduced by 20% from 2/3 to ~53% */}
               <div className="lg:w-[59%]">
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} main image`}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -348,12 +348,12 @@ const ProjectDetails: React.FC = () => {
                 {project.screenshots.slice(1, 5).map((src, idx) => (
                   <div
                     key={idx}
-                    className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border-2 border-white"
+                    className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border-2 border-white group"
                   >
                     <img
                       src={src}
                       alt={`${project.title} screenshot ${idx + 2}`}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-300"
                       loading="lazy"
                     />
                   </div>
@@ -366,12 +366,12 @@ const ProjectDetails: React.FC = () => {
             {project.screenshots.map((screenshot, index) => (
               <div
                 key={index}
-                className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group"
               >
                 <img
                   src={screenshot}
                   alt={`${project.title} screenshot ${index + 1}`}
-                  className="w-full h-auto"
+                  className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
