@@ -12,7 +12,7 @@ export default {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
         'slide-up': 'slideUp 0.5s ease-out forwards',
         'slide-right': 'slideRight 0.5s ease-out forwards',
-        'scroll-left-to-right': 'scroll-left-to-right 36s linear infinite',
+        'scroll-left-to-right': 'scroll-left-to-right 45s linear infinite',
       },
       keyframes: {
         fadeIn: {
