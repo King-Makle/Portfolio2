@@ -193,8 +193,8 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'secret-typography' ? (
           <div className="mb-12">
-            {/* Secret Typography Layout matching red outlines exactly */}
-            <div className="max-w-6xl mx-auto">
+            {/* Secret Typography Layout - Matching the actual red outlines */}
+            <div className="max-w-5xl mx-auto">
               {/* Top Row - Two square containers side by side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 {/* Top Left Square - First angled view */}
@@ -218,10 +218,10 @@ const ProjectDetails: React.FC = () => {
                 </div>
               </div>
               
-              {/* Bottom Row - Two rectangular containers */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {/* Bottom Left - Wide rectangular container for placard */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
+              {/* Bottom Row - Two containers: left is wider, right is tall */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Bottom Left - Wide container for placard (2/3 width) */}
+                <div className="md:col-span-2 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
                   <img
                     src={project.screenshots[3]}
                     alt={`${project.title} Secret Typography Love placard`}
@@ -230,8 +230,8 @@ const ProjectDetails: React.FC = () => {
                   />
                 </div>
                 
-                {/* Bottom Right - Tall rectangular container for full installation */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                {/* Bottom Right - Tall container for full installation (1/3 width) */}
+                <div className="md:col-span-1 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} full wall installation`}
