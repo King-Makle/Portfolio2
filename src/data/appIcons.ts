@@ -11,5 +11,5 @@ export const appIcons = [
   '/images/Icons/PremierePro1.png',
   '/images/Icons/procreate.png',
   '/images/Icons/Prusa.jpg',
-  '/images/Icons/Rhino7.png'
+  '/images/Icons/Rhino7.1.png'
 ];
