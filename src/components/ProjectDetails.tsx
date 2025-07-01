@@ -193,46 +193,52 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'secret-typography' ? (
           <div className="mb-12">
-            {/* Secret Typography 2-Column Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto">
-              {/* Top Left - Angled view 1 */}
-              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src={project.screenshots[1]}
-                  alt={`${project.title} angled view 1`}
-                  className="w-full h-64 object-cover"
-                  loading="lazy"
-                />
+            {/* Secret Typography Custom Layout matching red outlines */}
+            <div className="max-w-6xl mx-auto">
+              {/* Top Row - Two square containers side by side */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                {/* Top Left - First angled view */}
+                <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <img
+                    src={project.screenshots[1]}
+                    alt={`${project.title} angled view 1`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                
+                {/* Top Right - Second angled view */}
+                <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <img
+                    src={project.screenshots[2]}
+                    alt={`${project.title} angled view 2`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
               
-              {/* Top Right - Angled view 2 */}
-              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src={project.screenshots[2]}
-                  alt={`${project.title} angled view 2`}
-                  className="w-full h-64 object-cover"
-                  loading="lazy"
-                />
-              </div>
-              
-              {/* Bottom Left - Black placard "Secret Typography Love" */}
-              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group">
-                <img
-                  src={project.screenshots[3]}
-                  alt={`${project.title} Secret Typography Love placard`}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              
-              {/* Bottom Right - Full wall installation */}
-              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <img
-                  src={project.screenshots[0]}
-                  alt={`${project.title} full wall installation`}
-                  className="w-full h-64 object-cover"
-                  loading="lazy"
-                />
+              {/* Bottom Row - Two containers with different proportions */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Bottom Left - Wide rectangular container for placard */}
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group">
+                  <img
+                    src={project.screenshots[3]}
+                    alt={`${project.title} Secret Typography Love placard`}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                
+                {/* Bottom Right - Tall rectangular container for full installation */}
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <img
+                    src={project.screenshots[0]}
+                    alt={`${project.title} full wall installation`}
+                    className="w-full h-64 object-cover"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
