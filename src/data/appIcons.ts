@@ -8,7 +8,7 @@ export const appIcons = [
   '/images/Icons/Indesign.png',
   '/images/Icons/Lightroom.png',
   '/images/Icons/Photoshop.png',
-  '/images/Icons/PremierePro.png',
+  '/images/Icons/PremierePro1.png',
   '/images/Icons/procreate.png',
   '/images/Icons/Prusa.jpg',
   '/images/Icons/Rhino7.png'
