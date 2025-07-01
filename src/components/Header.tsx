@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -7,8 +7,6 @@ const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const menuContentRef = useRef<HTMLDivElement>(null);
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -39,35 +37,6 @@ const Header: React.FC = () => {
     
     return () => {
       document.body.style.overflow = 'auto';
-    };
-  }, [isMenuOpen]);
-
-  // Click outside to close mobile menu
-  useEffect(() => {
-    if (!isMenuOpen) return;
-
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Element;
-      
-      // Don't close if clicking on the toggle button
-      if (target.closest('#mobile-menu-toggle')) {
-        return;
-      }
-      
-      // Close if clicking outside the menu content
-      if (menuContentRef.current && !menuContentRef.current.contains(target)) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    // Delay adding the event listener to prevent immediate closure
-    const timeoutId = setTimeout(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-    }, 100);
-
-    return () => {
-      clearTimeout(timeoutId);
-      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isMenuOpen]);
 
@@ -110,7 +79,6 @@ const Header: React.FC = () => {
         
         {/* Mobile Navigation Toggle */}
         <button 
-          id="mobile-menu-toggle"
           onClick={toggleMenu}
           className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors md:hidden"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -120,18 +88,12 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile Menu */}
-      <div 
-        ref={overlayRef}
-        className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 flex items-center justify-center ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        <div 
-          ref={menuContentRef}
-          className="container-custom h-full w-full"
-        >
-          <nav className="flex flex-col h-full items-center justify-center">
-            <ul className="flex flex-col space-y-6 text-xl text-center">
+      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
+        isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+      }`}>
+        <div className="container-custom pt-24 pb-8">
+          <nav className="flex flex-col">
+            <ul className="flex flex-col space-y-6 text-xl">
               <li><button onClick={() => handleNavigation('home')} className="nav-link active-nav-link">Home</button></li>
               <li><button onClick={() => handleNavigation('about')} className="nav-link">About</button></li>
               <li><button onClick={() => handleNavigation('skills')} className="nav-link">Skills</button></li>
