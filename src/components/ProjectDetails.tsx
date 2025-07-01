@@ -193,36 +193,21 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'secret-typography' ? (
           <div className="mb-12">
-            {/* Secret Typography Custom Layout */}
-            <div className="flex flex-col lg:flex-row gap-4">
-              {/* Left 2×2 grid (4 images) */}
-              <div className="lg:w-[41.3%] grid grid-cols-2 grid-rows-2 gap-4">
-                {project.screenshots.slice(1, 5).map((src, idx) => (
-                  <div
-                    key={idx}
-                    className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border-2 border-white"
-                  >
-                    <img
-                      src={src}
-                      alt={`${project.title} screenshot ${idx + 2}`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Right main image */}
-              <div className="lg:w-[58.7%]">
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border-2 border-white h-full">
+            {/* Secret Typography Grid Layout - 2x2 grid */}
+            <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto">
+              {project.screenshots.slice(0, 4).map((src, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                >
                   <img
-                    src={project.screenshots[0]}
-                    alt={`${project.title} main image`}
+                    src={src}
+                    alt={`${project.title} screenshot ${idx + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         ) : project.id === 'colorado-tattoo-convention' ? (
@@ -444,6 +429,7 @@ const ProjectDetails: React.FC = () => {
                     </li>
                   ))}
                 </ul>
+                </div>
               </div>
             </div>
           </div>
