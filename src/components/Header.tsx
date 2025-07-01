@@ -102,8 +102,8 @@ const Header: React.FC = () => {
           </button>
         </div>
         
-        <div className="container-custom pt-24 pb-8 bg-white dark:bg-gray-900">
-          <nav className="flex flex-col">
+        <div className="w-full h-full bg-white dark:bg-gray-900 pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+          <nav className="flex flex-col h-full justify-center">
             <ul className="flex flex-col space-y-6 text-xl">
               <li><button onClick={() => handleNavigation('home')} className="nav-link active-nav-link">Home</button></li>
               <li><button onClick={() => handleNavigation('about')} className="nav-link">About</button></li>
