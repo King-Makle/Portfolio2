@@ -218,7 +218,7 @@ This hybrid visual language is meant to evoke the tension between structure and 
       '/images/Full2.jpg',
       '/images/grafitileft1.jpg',
       '/images/grafitiright1.jpg',
-      '/images/Description copy.jpg'
+      '/images/Description copy copy.jpg'
     ],
     liveUrl: 'https://example.com/3d-renders',
     githubUrl: 'https://example.com/project-brief'
