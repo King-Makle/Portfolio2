@@ -9,7 +9,7 @@ export const appIcons = [
   '/images/Icons/Lightroom.png',
   '/images/Icons/Photoshop.png',
   '/images/Icons/PremierePro.png',
-  '/images/TransparentPhone.png',
-  '/images/Book.png',
-  '/images/Social Media Posts2.png'
+  '/images/Icons/procreate.png',
+  '/images/Icons/Prusa.jpg',
+  '/images/Icons/Rhino7.png'
 ];
