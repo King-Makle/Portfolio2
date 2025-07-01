@@ -29,9 +29,7 @@ const Projects: React.FC<ProjectsProps> = ({ scrollY }) => {
           <h2 className="section-title">My Projects</h2>
         </div>
         
-        <IconStream />
-
-        <div className="flex flex-wrap justify-center gap-3 mb-12 mt-8">
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           <button 
             onClick={() => setActiveCategory('all')}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -69,6 +67,9 @@ const Projects: React.FC<ProjectsProps> = ({ scrollY }) => {
           ))}
         </div>
       </div>
+      
+      {/* Icon Stream below projects */}
+      <IconStream />
     </section>
   );
 };
