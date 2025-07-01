@@ -88,7 +88,7 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
+      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-[60] transition-all duration-300 ${
         isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}>
         {/* Close Button in Mobile Menu */}
