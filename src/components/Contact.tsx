@@ -153,6 +153,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
               className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg"
               name="contact"
               method="POST"
+              action="/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
