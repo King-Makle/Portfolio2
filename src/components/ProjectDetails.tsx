@@ -293,8 +293,8 @@ const ProjectDetails: React.FC = () => {
             </div>
           </div>
         ) : project.id === 'spliteasy' ? (
-          <div className="mb-12">
-            {/* Banner Image - Full Width */}
+          <div className="mb-12 max-w-[80%] mx-auto">
+            {/* Banner Image - Full Width (reduced by 20%) */}
             <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow mb-5 group">
               <img
                 src={project.screenshots[0]}
@@ -304,10 +304,10 @@ const ProjectDetails: React.FC = () => {
               />
             </div>
 
-            {/* Two Column Layout - 66% / 33% with 20px gap */}
+            {/* Two Column Layout - reduced by 20% */}
             <div className="flex flex-col gap-5 max-[600px]:gap-5 min-[600px]:flex-row min-[600px]:gap-5">
-              {/* Left Column - UI Design Board (66%) */}
-              <div className="min-[600px]:w-[55%]">
+              {/* Left Column - UI Design Board (reduced from 55% to 44%) */}
+              <div className="min-[600px]:w-[44%]">
                 <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[1]}
@@ -318,8 +318,8 @@ const ProjectDetails: React.FC = () => {
                 </div>
               </div>
 
-              {/* Right Column - Style Guide (33%) */}
-              <div className="min-[600px]:w-[46%]">
+              {/* Right Column - Style Guide (reduced from 46% to 36.8%) */}
+              <div className="min-[600px]:w-[36.8%]">
                 <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[2]}
