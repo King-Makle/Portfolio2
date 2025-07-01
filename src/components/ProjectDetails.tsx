@@ -51,6 +51,10 @@ const ProjectDetails: React.FC = () => {
     }
   };
 
+  const handleBackToPortfolio = () => {
+    navigate('/', { state: { scrollTo: 'projects' } });
+  };
+
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -74,7 +78,7 @@ const ProjectDetails: React.FC = () => {
       <div className="container-custom">
         {/* Back Button */}
         <button
-          onClick={() => navigate('/')}
+          onClick={handleBackToPortfolio}
           className="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-400 mb-8 transition-colors"
         >
           <ArrowLeft size={20} className="mr-2" />
