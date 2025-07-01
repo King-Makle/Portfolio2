@@ -134,13 +134,13 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'urban-reflections' ? (
           <div className="mb-12">
-            {/* Urban Reflections Carousel - Fixed height for consistency */}
+            {/* Urban Reflections Carousel - Container matches photo size */}
             <div className="relative max-w-4xl mx-auto">
-              <div className="relative rounded-xl overflow-hidden shadow-lg group h-96">
+              <div className="relative rounded-xl overflow-hidden shadow-lg group">
                 <img
                   src={project.screenshots[currentImageIndex]}
                   alt={`${project.title} image ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                  className="w-full h-auto object-contain transition-all duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
