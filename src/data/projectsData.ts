@@ -215,7 +215,7 @@ This hybrid visual language is meant to evoke the tension between structure and 
       'Technical refinement of extruding custom shapes and graffiti in Blender'
     ],
     screenshots: [
-      '/images/Full copy.jpg',
+      '/images/Full1.jpg',
       '/images/grafitileft1.jpg',
       '/images/grafitiright1.jpg',
       '/images/Description copy.jpg'
