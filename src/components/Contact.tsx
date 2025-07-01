@@ -29,31 +29,55 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
     setFormState(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage({
-        type: 'success',
-        text: 'Thanks for your message! I\'ll get back to you shortly.'
+    try {
+      const form = formRef.current;
+      if (!form) return;
+      
+      const formData = new FormData(form);
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
       });
       
-      if (formRef.current) {
-        formRef.current.reset();
+      if (response.ok) {
+        setSubmitMessage({
+          type: 'success',
+          text: 'Thanks for your message! I\'ll get back to you shortly.'
+        });
+        
+        // Reset form
         setFormState({
           name: '',
           email: '',
           subject: '',
           message: ''
         });
+        
+        if (formRef.current) {
+          formRef.current.reset();
+        }
+      } else {
+        throw new Error('Form submission failed');
       }
+    } catch (error) {
+      setSubmitMessage({
+        type: 'error',
+        text: 'Sorry, there was an error sending your message. Please try again.'
+      });
+    } finally {
+      setIsSubmitting(false);
       
+      // Clear message after 5 seconds
       setTimeout(() => {
         setSubmitMessage({ type: null, text: '' });
       }, 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -88,7 +112,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-1 text-gray-900 dark:text-white">Email</h4>
-                  <a href="mailto:hello@yourname.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                  <a href="mailto:Michaelrichards1220@gmail.com" className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
                     Michaelrichards1220@gmail.com
                   </a>
                 </div>
@@ -100,7 +124,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold mb-1 text-gray-900 dark:text-white">Phone</h4>
-                  <a href="tel:+11234567890" className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
+                  <a href="tel:+15053620936" className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
                     +1 (505) 362-0936
                   </a>
                 </div>
@@ -123,10 +147,28 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
           <div className={`lg:col-span-3 transition-all duration-700 ${
             isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'
           }`}>
-            <form ref={formRef} onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+            <form 
+              ref={formRef} 
+              onSubmit={handleSubmit} 
+              className="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg"
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              {/* Hidden fields for Netlify */}
+              <input type="hidden" name="form-name" value="contact" />
+              <div style={{ display: 'none' }}>
+                <label>
+                  Don't fill this out if you're human: <input name="bot-field" />
+                </label>
+              </div>
+              
               {submitMessage.type && (
                 <div className={`mb-6 p-4 rounded-lg ${
-                  submitMessage.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
+                  submitMessage.type === 'success' 
+                    ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800' 
+                    : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800'
                 }`}>
                   {submitMessage.text}
                 </div>
@@ -144,7 +186,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
                     value={formState.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                     placeholder="John Doe"
                   />
                 </div>
@@ -160,7 +202,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
                     value={formState.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -177,7 +219,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
                   value={formState.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                   placeholder="How can I help you?"
                 />
               </div>
@@ -193,7 +235,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-white resize-none transition-colors"
                   placeholder="Your message..."
                 ></textarea>
               </div>
@@ -201,7 +243,7 @@ const Contact: React.FC<ContactProps> = ({ scrollY }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-colors flex items-center justify-center disabled:bg-blue-400"
+                className="w-full px-6 py-3 bg-blue-500 hover:bg-blue-600 disabled:bg-blue-400 text-white font-medium rounded-lg transition-colors flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <span className="flex items-center">
