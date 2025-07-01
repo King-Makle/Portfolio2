@@ -4,9 +4,9 @@ import { appIcons } from '../data/appIcons';
 const IconStream: React.FC = () => {
   return (
     <div className="icon-stream-wrapper relative w-full overflow-hidden py-8 md:py-12">
-      <div className="icon-stream-content flex w-[200%] animate-scroll-left-to-right">
-        {/* Render icons twice for seamless looping */}
-        <div className="flex w-1/2 items-center gap-x-6">
+      <div className="icon-stream-content flex min-w-max animate-scroll-left-to-right">
+        {/* First set of icons */}
+        <div className="flex items-center gap-x-6">
           {appIcons.map((icon, index) => (
             <div key={`first-${index}`} className="icon-stream-item flex-shrink-0">
               <img
@@ -17,7 +17,8 @@ const IconStream: React.FC = () => {
             </div>
           ))}
         </div>
-        <div className="flex w-1/2 items-center gap-x-6">
+        {/* Second set of icons for seamless looping */}
+        <div className="flex items-center gap-x-6 ml-6">
           {appIcons.map((icon, index) => (
             <div key={`second-${index}`} className="icon-stream-item flex-shrink-0">
               <img

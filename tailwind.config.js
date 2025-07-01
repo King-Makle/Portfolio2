@@ -28,8 +28,8 @@ export default {
           '100%': { transform: 'translateX(0)', opacity: '1' },
         },
         'scroll-left-to-right': {
-          '0%': { transform: 'translateX(-50%)' },
-          '100%': { transform: 'translateX(0%)' },
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
       },
       transitionDelay: {
