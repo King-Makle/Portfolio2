@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock, Award, Lightbulb, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
+import { useSeo } from '../hooks/useSeo';
+import { useStructuredData } from '../hooks/useStructuredData';
 
 interface ProjectDetail {
   id: string;
@@ -27,6 +29,37 @@ const ProjectDetails: React.FC = () => {
   const navigate = useNavigate();
   const project = projectsData.find(p => p.id === id) as ProjectDetail;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // SEO for project details page
+  useSeo({
+    title: project ? `${project.title} | Makle Richards Portfolio` : 'Project Not Found | Makle Richards Portfolio',
+    description: project ? `${project.description} View detailed case study, process, and outcomes of this ${project.category} project by Makle Richards.` : 'Project not found in Makle Richards portfolio.',
+    image: project?.image || '/images/highlights.png',
+    url: window.location.href,
+    type: 'article',
+    keywords: project ? `${project.title}, ${project.technologies.join(', ')}, ${project.category}, Makle Richards, portfolio, case study` : 'portfolio, project, not found'
+  });
+
+  // Structured data for project
+  useStructuredData({
+    type: 'CreativeWork',
+    data: project ? {
+      name: project.title,
+      description: project.description,
+      image: project.image,
+      creator: {
+        '@type': 'Person',
+        name: 'Makle Richards',
+        jobTitle: 'Visual Strategist & UI/UX Designer'
+      },
+      dateCreated: project.timeline,
+      genre: project.category,
+      keywords: project.technologies.join(', '),
+      about: project.fullDescription,
+      url: window.location.href,
+      ...(project.liveUrl && { sameAs: project.liveUrl })
+    } : {}
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
