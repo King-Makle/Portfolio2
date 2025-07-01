@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { projectsData, categories } from '../data/projectsData';
-import { ExternalLink, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import IconStream from './IconStream';
 
@@ -99,35 +98,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isVisible }) 
         transform: isVisible ? 'translateY(0)' : 'translateY(50px)'
       }}
     >
-      <div className="relative overflow-hidden h-48">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500"
-        />
-        
-        <div className="project-overlay absolute inset-0 bg-blue-500/80 flex items-center justify-center space-x-4 opacity-0 transition-opacity duration-300">
-          <Link 
-            to={`/project/${project.id}`}
-            className="p-2 bg-white rounded-full text-blue-500 hover:bg-gray-100 transition-colors"
-            aria-label="View project details"
-          >
-            <ExternalLink size={20} />
-          </Link>
-          
-          {project.githubUrl && (
-            <a 
-              href={project.githubUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-2 bg-white rounded-full text-blue-500 hover:bg-gray-100 transition-colors"
-              aria-label="View source code on GitHub"
-            >
-              <Github size={20} />
-            </a>
-          )}
+      <Link to={`/project/${project.id}`} className="block">
+        <div className="relative overflow-hidden h-48">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
         </div>
-      </div>
+      </Link>
       
       <div className="p-6">
         <Link to={`/project/${project.id}`}>
