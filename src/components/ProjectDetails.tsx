@@ -429,7 +429,6 @@ const ProjectDetails: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                </div>
               </div>
             </div>
           </div>
