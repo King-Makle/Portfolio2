@@ -237,7 +237,7 @@ const ProjectDetails: React.FC = () => {
               
               {/* Right Column - One tall image with extended height (h-96 + 100px = h-[500px]) */}
               <div className="lg:w-[45%]">
-                <div className="h-[800px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                <div className="h-[810px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} full wall installation`}
