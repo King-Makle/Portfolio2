@@ -1,7 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { useInView } from '../hooks/useInView';
 import { projectsData, categories } from '../data/projectsData';
+import { ExternalLink, Github } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import IconStream from './IconStream';
 
 interface ProjectsProps {
   scrollY: number;
@@ -27,7 +29,9 @@ const Projects: React.FC<ProjectsProps> = ({ scrollY }) => {
           <h2 className="section-title">My Projects</h2>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <IconStream />
+
+        <div className="flex flex-wrap justify-center gap-3 mb-12 mt-8">
           <button 
             onClick={() => setActiveCategory('all')}
             className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
@@ -87,43 +91,65 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, isVisible }) => {
   return (
     <div 
-      className={`project-card card group transition-all duration-700 overflow-hidden cursor-pointer`}
+      className={`project-card card group transition-all duration-700 overflow-hidden`}
       style={{ 
         transitionDelay: `${index * 100}ms`,
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(50px)'
       }}
     >
-      <Link to={`/project/${project.id}`} className="block">
-        <div className="relative overflow-hidden h-48">
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        </div>
+      <div className="relative overflow-hidden h-48">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500"
+        />
         
-        <div className="p-6">
+        <div className="project-overlay absolute inset-0 bg-blue-500/80 flex items-center justify-center space-x-4 opacity-0 transition-opacity duration-300">
+          <Link 
+            to={`/project/${project.id}`}
+            className="p-2 bg-white rounded-full text-blue-500 hover:bg-gray-100 transition-colors"
+            aria-label="View project details"
+          >
+            <ExternalLink size={20} />
+          </Link>
+          
+          {project.githubUrl && (
+            <a 
+              href={project.githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 bg-white rounded-full text-blue-500 hover:bg-gray-100 transition-colors"
+              aria-label="View source code on GitHub"
+            >
+              <Github size={20} />
+            </a>
+          )}
+        </div>
+      </div>
+      
+      <div className="p-6">
+        <Link to={`/project/${project.id}`}>
           <h3 className="text-xl font-bold mb-2 group-hover:text-blue-500 transition-colors">
             {project.title}
           </h3>
-          
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
-            {project.description}
-          </p>
-          
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map(tech => (
-              <span 
-                key={tech} 
-                className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        </Link>
+        
+        <p className="text-gray-600 dark:text-gray-400 mb-4">
+          {project.description}
+        </p>
+        
+        <div className="flex flex-wrap gap-2">
+          {project.technologies.map(tech => (
+            <span 
+              key={tech} 
+              className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

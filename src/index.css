@@ -35,6 +35,12 @@
     content: '';
     @apply absolute -bottom-4 left-0 w-full h-1 bg-blue-500 rounded-full;
   }
+
+  /* Keyframes for the icon stream */
+  @keyframes scroll-left-to-right {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0%); }
+  }
 }
 
 @layer components {
@@ -76,6 +82,14 @@
 
   .section-heading-wrapper {
     @apply flex flex-col items-center justify-center mb-8;
+  }
+
+  .icon-stream-wrapper {
+    @apply hidden md:block; /* Hide on mobile, show on medium screens and up */
+  }
+
+  .icon-stream-content {
+    animation: scroll-left-to-right 60s linear infinite; /* Adjust duration for speed */
   }
 }
 
