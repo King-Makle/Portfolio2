@@ -89,7 +89,7 @@
   }
 
   .icon-stream-content {
-    animation: scroll-left-to-right 60s linear infinite; /* Adjust duration for speed */
+    animation: scroll-left-to-right 80s linear infinite; /* Adjusted duration for 13 icons */
   }
 }
 
