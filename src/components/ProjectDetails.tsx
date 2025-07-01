@@ -193,10 +193,10 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'secret-typography' ? (
           <div className="mb-12">
-            {/* Secret Typography Layout - Left side: 3 images, Right side: 1 tall image */}
+            {/* Secret Typography Layout - Left side: 3 images (60%), Right side: 1 tall image (40%) */}
             <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-4">
-              {/* Left Column - 3 images stacked */}
-              <div className="lg:w-2/3 flex flex-col gap-4">
+              {/* Left Column - 3 images stacked (60%) */}
+              <div className="lg:w-[60%] flex flex-col gap-4">
                 {/* Top Row - Two equal square containers */}
                 <div className="grid grid-cols-2 gap-4">
                   {/* Top Left Square - First angled view */}
@@ -231,8 +231,8 @@ const ProjectDetails: React.FC = () => {
                 </div>
               </div>
               
-              {/* Right Column - One tall image spanning full height */}
-              <div className="lg:w-1/3">
+              {/* Right Column - One tall image spanning full height (40%) */}
+              <div className="lg:w-[40%]">
                 <div className="h-full rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                   <img
                     src={project.screenshots[0]}
