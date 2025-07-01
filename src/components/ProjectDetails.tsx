@@ -193,11 +193,11 @@ const ProjectDetails: React.FC = () => {
           </div>
         ) : project.id === 'secret-typography' ? (
           <div className="mb-12">
-            {/* Secret Typography Custom Layout matching red outlines */}
-            <div className="max-w-6xl mx-auto">
+            {/* Secret Typography Layout matching red outlines */}
+            <div className="max-w-5xl mx-auto">
               {/* Top Row - Two square containers side by side */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                {/* Top Left - First angled view */}
+                {/* Top Left Square - First angled view */}
                 <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                   <img
                     src={project.screenshots[1]}
@@ -207,7 +207,7 @@ const ProjectDetails: React.FC = () => {
                   />
                 </div>
                 
-                {/* Top Right - Second angled view */}
+                {/* Top Right Square - Second angled view */}
                 <div className="aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                   <img
                     src={project.screenshots[2]}
@@ -218,14 +218,14 @@ const ProjectDetails: React.FC = () => {
                 </div>
               </div>
               
-              {/* Bottom Row - Two containers with different proportions */}
+              {/* Bottom Row - Two rectangular containers */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Bottom Left - Wide rectangular container for placard */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow cursor-pointer group">
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
                   <img
                     src={project.screenshots[3]}
                     alt={`${project.title} Secret Typography Love placard`}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
@@ -235,7 +235,7 @@ const ProjectDetails: React.FC = () => {
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} full wall installation`}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-48 object-cover"
                     loading="lazy"
                   />
                 </div>
