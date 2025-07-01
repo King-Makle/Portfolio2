@@ -235,9 +235,9 @@ const ProjectDetails: React.FC = () => {
                 </div>
               </div>
               
-              {/* Right Column - One tall image with fixed height to match landscape photos */}
+              {/* Right Column - One tall image with extended height (h-96 + 100px = h-[500px]) */}
               <div className="lg:w-[45%]">
-                <div className="h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
+                <div className="h-[500px] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
                   <img
                     src={project.screenshots[0]}
                     alt={`${project.title} full wall installation`}
