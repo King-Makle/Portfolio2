@@ -52,6 +52,14 @@ const Header: React.FC = () => {
     setIsMenuOpen(false);
   };
 
+  const handleOverlayClick = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleMenuContentClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled 
@@ -88,10 +96,16 @@ const Header: React.FC = () => {
       </div>
       
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
-        isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}>
-        <div className="container-custom pt-24 pb-8">
+      <div 
+        className={`fixed inset-0 bg-white dark:bg-gray-900 z-40 transition-all duration-300 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={handleOverlayClick}
+      >
+        <div 
+          className="container-custom pt-24 pb-8"
+          onClick={handleMenuContentClick}
+        >
           <nav className="flex flex-col">
             <ul className="flex flex-col space-y-6 text-xl">
               <li><button onClick={() => handleNavigation('home')} className="nav-link active-nav-link">Home</button></li>
