@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Download, Calendar, Clock, Award, Lightbulb, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Award, Lightbulb, ChevronLeft, ChevronRight } from 'lucide-react';
 import { projectsData } from '../data/projectsData';
 
 interface ProjectDetail {
@@ -93,30 +93,6 @@ const ProjectDetails: React.FC = () => {
                 {tech}
               </span>
             ))}
-          </div>
-          <div className="flex flex-wrap gap-4">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary flex items-center"
-              >
-                <ExternalLink size={18} className="mr-2" />
-                {isDesignProject ? 'View Brand Kit' : 'View Live Demo'}
-              </a>
-            )}
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline flex items-center"
-              >
-                <Download size={18} className="mr-2" />
-                {isDesignProject ? 'Download Case Study' : 'View Source Code'}
-              </a>
-            )}
           </div>
         </div>
 
