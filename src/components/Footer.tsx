@@ -47,18 +47,18 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col items-end gap-4 w-full md:w-auto">
-            <div className="text-right w-full">
+          <div className="flex flex-col items-center md:items-end gap-4 w-full md:w-auto">
+            <div className="text-center md:text-right w-full">
               <a href="#" className="text-2xl font-bold text-blue-400">
                 Portfolio<span className="text-teal-400">.</span>
               </a>
-              <p className="mt-2 text-[#f5f5f5] max-w-xs ml-auto">
+              <p className="mt-2 text-[#f5f5f5] max-w-xs mx-auto md:ml-auto md:mx-0">
                Designs with experience in mind.
               </p>
             </div>
 
-            <div className="flex flex-col items-end gap-2 w-full">
-              <div className="flex items-center space-x-4 justify-end w-full">
+            <div className="flex flex-col items-center md:items-end gap-2 w-full">
+              <div className="flex items-center space-x-4 justify-center md:justify-end w-full">
                 <button 
                   onClick={toggleTheme}
                   className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
                   )}
                 </button>
               </div>
-              <p className="text-[#f5f5f5] text-sm text-right w-full">
+              <p className="text-[#f5f5f5] text-sm text-center md:text-right w-full">
                 &copy; {currentYear} Makle Richards. All rights reserved.
               </p>
             </div>
