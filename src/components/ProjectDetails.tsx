@@ -220,12 +220,12 @@ const ProjectDetails: React.FC = () => {
                   </div>
                 </div>
                 
-                {/* Bottom - Wide rectangular container for placard (30% taller) */}
-                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group" style={{ height: '130%' }}>
+                {/* Bottom - Wide rectangular container for placard */}
+                <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group">
                   <img
                     src={project.screenshots[3]}
                     alt={`${project.title} Secret Typography Love placard`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </div>
